@@ -1,7 +1,13 @@
 # 2018-1-OSS-E7
 
+## Wiki
+[https://github.com/18-1-SKKU-OSS/2018-1-OSS-E7/wiki](https://github.com/18-1-SKKU-OSS/2018-1-OSS-E7/wiki)
+
 ## Static Page
 [https://18-1-skku-oss.github.io/2018-1-OSS-E7/](https://18-1-skku-oss.github.io/2018-1-OSS-E7/)
+
+## Project
+[https://github.com/vlachoudis/bCNC](https://github.com/vlachoudis/bCNC)
 
 ## Members
 
