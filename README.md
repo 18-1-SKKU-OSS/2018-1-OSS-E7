@@ -6,6 +6,8 @@
 ## Static Page
 [https://18-1-skku-oss.github.io/2018-1-OSS-E7/](https://18-1-skku-oss.github.io/2018-1-OSS-E7/)
 
+[http://52.90.35.41/wordpress/](http://52.90.35.41/wordpress/)
+
 ## Project
 [https://github.com/vlachoudis/bCNC](https://github.com/vlachoudis/bCNC)
 
@@ -28,7 +30,7 @@ An advanced fully featured g-code sender for GRBL. bCNC is a cross platform prog
 
 ![bCNC screenshot](https://raw.githubusercontent.com/vlachoudis/bCNC/doc/Screenshots/bCNC.png)
 
-# Installation
+## Installation
 You will need the following packages to run bCNC
 - tkinter the graphical toolkit for python
   Depending your python/OS it can either be already installed,
@@ -41,7 +43,7 @@ You will need the following packages to run bCNC
 Expand the directory or download it from github
 and run the bCNC command
 
-# Configuration
+## Configuration
 You can modify most of the parameters from the "Tools -> Machine"
 page. Only the changes/differences from the default configuration
 file will be saved in your home directory ${HOME}/.bCNC  or ~/.bCNC
@@ -51,7 +53,7 @@ installation directory.
 
 *PLEASE DO NOT CHANGE THIS ONE*
 
-# Features:
+## Features:
 - simple and intuitive interface for small screens
 - import/export **g-code** and **dxf** files
 - fast g-code sender (works nicely on RPi and old hardware)
@@ -85,25 +87,11 @@ installation directory.
     - moving, rotating, mirroring the g-code
 - Web pendant to be used via smart phones
 
-# Disclaimer
+## Disclaimer
   The software is made available "AS IS". It seems quite stable, but it is in
   an early stage of development.  Hence there should be plenty of bugs not yet
   spotted. Please use/try it with care, I don't want to be liable if it causes
   any damage :)
-
-# Our Github Page templete: Stylish Portolio template for Jekyll
-
-A Jekyll implementation of the [Stylish Portfolio](http://startbootstrap.com/template-overviews/stylish-portfolio/) template by [Start Bootstrap](http://startbootstrap.com/).
-
-See the site in action at https://volny.github.io/stylish-portfolio-jekyll/
-
-## To use the Stylish Portfolio template in your project
-
-- Start by adding your info in `_config.yml`
-- Add as many address lines as you want. Your address will also be used to show your location on the map.
-- For the emdeded map to work you'll need to [get a key from Google Maps Embed API](https://developers.google.com/maps/documentation/embed/?hl=en)
-- In `_layouts/front.html` reorder or remove section as you prefer.
-
 
 # Our Theme
 
@@ -177,6 +165,6 @@ Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework 
 
 ## Copyright and License
 
-Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-agency/blob/gh-pages/LICENSE) license.
+## Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-agency/blob/gh-pages/LICENSE) license.
 =======
 
