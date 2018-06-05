@@ -9,6 +9,7 @@
 [http://52.90.35.41/wordpress/](http://52.90.35.41/wordpress/)
 
 ## Project
+project page: [https://github.com/18-1-SKKU-OSS/bCNC](https://github.com/18-1-SKKU-OSS/bCNC)
 [https://github.com/vlachoudis/bCNC](https://github.com/vlachoudis/bCNC)
 
 ## Members
