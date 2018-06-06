@@ -539,7 +539,7 @@
                   <p class="item-intro text-muted">디자인</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
                   <p>나는 librecad로 아주 빨리 뭔가를 스케치했다. 원형 가장자리가있는 30x100mm 직사각형으로 70mm x 5.2mm의 중간에 슬릿이 있고 6.5mm 구멍이 있습니다. 슬릿은 상단 나사를 자유롭게 움직여 올바른 위치로 조정하기위한 것입니다. 나는 M5 나사를 사용하고 있으므로 나사가 자유롭게 움직일 수있는 0.2mm의 공차를 허용합니다. 클램프를 제작 한 후에는 조금 더 상처를 입지 않을 것이라고 말하고 싶습니다. 예 : 허용 오차는 0.4mm입니다.
-                    <img class="img-fluid d-block mx-auto" src="img/jina/2.jpg" alt="">
+                    <img class="img-fluid d-block mx-auto" src="img/jina/2.png" alt="">
                     6.5mm의 구멍은 거꾸로 된 나사 (M5)의 너트를 삽입하는 것입니다.
                   </p>
                   <p class="item-intro text-muted">gcode 만들기</p>
@@ -569,7 +569,7 @@
                       모든 프로필 경로 선택
                       실행을 클릭하십시오 (또는 명령 컷을 입력하십시오)
                       ISO1보기를 선택하면 다음 이미지와 같은 경로가 절단되어야합니다.
-                      <img class="img-fluid d-block mx-auto" src="img/jina/5.jpg" alt="">
+                      <img class="img-fluid d-block mx-auto" src="img/jina/5.png" alt="">
                       중요 사항 : 기계로 보내기 전에 먼저 내부 부품을 자르기위한 경로를 다시 정렬해야합니다. 이렇게하려면 편집기 탭으로 이동하여 편집기에서 이동할 경로를 선택하고 Ctrl 키 또는 Control 키를 사용하여 위 / 아래로 이동하십시오.
                   </p>
                   <p class="item-intro text-muted">밀링</p>
@@ -695,24 +695,24 @@ class Tool(Plugin):<br>
                   <p>자신의 언어로 bCNC를 번역하여 다른 사람들을 도울 수 있습니다. bCNC는 컴퓨터에서 구성한 로켈과 동일한 언어로 시작됩니다.</p>
 <p>
 1)	우선 Poedit을 설치해야합니다. 이것은 번역 파일을 생성하기 위해 사용되는 인터페이스입니다. 그것을 얻으십시오 : http://poedit.net/download (리눅스에서 : apt-get install poedit OR yum install poedit)<br>
-<p></p>
+
 2)	설치가 완료되면 Poedit을 열고 "기존 POT 파일로 새 번역 만들기"를 선택하십시오.<br>
-<p></p>
+
 3)	bCNC.pot 파일을로드하십시오 (bCNC 저장소의 루트 폴더에 있습니다). 그러면 대화 할 언어를 지정하라는 메시지가 나타납니다.<br>
-<p></p>
+
 4)	이제 번역이 필요한 모든 문장을 볼 수 있지만 아직 번역을 시작하지 마십시오. 대신 편집 -> 환경 설정으로 이동하여 이름 및 GitHub 사용자 이름을 입력하십시오 (예 : 이름 필드에 Peter Lang, 이메일 필드에 @peter).<br>
-<p></p>
+
 5)	번역 파일을 저장하십시오. 예를 들어 스페인어 번역은 "locale / es / LC_MESSAGES / bCNC.po"로 저장됩니다. 귀하의 언어 코드와 일치하도록 언어 코드를 변경해야합니다. 해당 폴더에 나타나는 자동 생성 bCNC.mo 파일도 변환에 필요합니다.<br>
-<p></p>
+
 6)	이제 번역을 시작할 수 있습니다. 긴 과정이므로 파일을 정기적으로 저장하십시오. 이 과정에서 bCNC를 열면 번역 할 언어와 동일한 언어로 구성된 로켈이 컴퓨터에있는 경우 번역 된 텍스트가 표시됩니다. Poedit를 닫은 후에 편집을 다시 시작해야하는 경우 LC_MESSAGES 폴더에 bCNC.po 파일을 직접로드 할 수 있습니다<br>
-<p></p>
-<p></p>
+
+
 참고 : 번역을 비워두면 원본 텍스트가 대신 사용됩니다. 원본 텍스트를 복제 할 필요는 없습니다.<br>
 
 참고 2 : 현재 (2016 년 1 월) 일부 문장이 GUI의 여러 부분에서 공유되므로 각 기능을 정확하게 설명하기가 어려울 수 있습니다 (예 : "잘라 내기"는 복사 / 붙여 넣기의 컨텍스트에서 사용됨) 가공 작업으로서).<br>
 
 참고 3 : 매우 기술적 인 자세한 오류 정보가있는 텍스트 단락이 있습니다. 시간이 없다면 이것들을 너무 많이 신경 쓰지 마라. 짧고 서술적인 텍스트를 더욱 중요하게 번역하십시오.<br>
-
+</p>
                   <p class="item-intro text-muted">updating translation</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
                   <p>bCNC가 많이 개발되고 있음을 눈치 챘을 것입니다. 따라서 기여한 번역본을 자주 업데이트하는 것이 바람직합니다. 이것을하기 위해서 :
