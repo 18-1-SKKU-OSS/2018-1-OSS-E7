@@ -617,7 +617,6 @@
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
 #!/usr/bin/python<br>
 # -*- coding: ascii -*-<br>
-# $Id$<br>
 #<br>
 # 저자:  이름을 입력하시오 <br>
 # 날짜:	   <br>
@@ -637,18 +636,18 @@ class Tool(Plugin):<br>
 	def __init__(self, master):<br>
 		Plugin.__init__(self, master,"MyPlugin")<br>
 		#MYPlugin은 도구 리본 버튼의 플러그인 표시 이름입니다.<br>
-		self.icon = "lamp"			#<<< 리본 버튼의 아이콘으로 사용되는 gif 파일의 이름입니다. "icons"하위 폴더에서 검색합니다.<br>
+		self.icon = "lamp"		#<<< 리본 버튼의 아이콘으로 사용되는 gif 파일의 이름입니다. "icons"하위 폴더에서 검색합니다.<br>
 		self.group = "Generator"	#<<< 플러그인에 속한 그룹의 이름입니다.<br>
 		# 여기에서는 플러그인 내부에서 사용자에게 표시되는 위젯을 작성합니다.<br>
 		# 이름, 유형, 기본값, 설명<br>
 		self.variables = [			#<<< GUI 구성 요소 목록 정의<br>
-			("name"    ,    "db" ,    "", _("Name")),							# 내부 데이터베이스에 플러그인 설정을 저장하는 데 사용됩니다.<br>
-			("Size"    ,    "mm" ,   100.0, _("Size description")),				# CNC 설정에 따라 mm / inch 단위로 변환되는 변수<br>
-			("Int"     ,   "int" ,    2222, _("Integer description")),			#an integer variable<br>
-			("Float"   , "float" ,    33.3, _("Float description")),			#a float value variable<br>
-			("Text"    , "text" ,    "Free Text", _("Text description")),		#a text input box<br>
-			("CheckBox", "bool" ,  False, _("CheckBox description")),			#a true/false check box<br>
-			("OpenFile", "file" ,     "", _("OpenFile description")),			#a file chooser widget<br>
+			("name"    ,    "db" ,    "", _("Name")),			# 내부 데이터베이스에 플러그인 설정을 저장하는 데 사용됩니다.<br>
+			("Size"    ,    "mm" ,   100.0, _("Size description")),		# CNC 설정에 따라 mm / inch 단위로 변환되는 변수<br>
+			("Int"     ,   "int" ,    2222, _("Integer description")),	#an integer variable<br>
+			("Float"   , "float" ,    33.3, _("Float description")),	#a float value variable<br>
+			("Text"    , "text" ,    "Free Text", _("Text description")),	#a text input box<br>
+			("CheckBox", "bool" ,  False, _("CheckBox description")),	#a true/false check box<br>
+			("OpenFile", "file" ,     "", _("OpenFile description")),	#a file chooser widget<br>
 			("ComboBox", "Item1,Item2,Item3" , "Item1", _("ComboBox description"))	# 객관식 콤보 상자<br>
 		]<br>
 		self.buttons.append("exe")  #<<< 아래의 execute 메소드를 호출하기 위해 하단에 추가 된 버튼입니다.<br>
@@ -689,9 +688,148 @@ class Tool(Plugin):<br>
 		blocks.append(block)<br>
 		active = app.activeBlock()<br>
 		app.gcode.insBlocks(active, blocks, "MyPlugins inserted")	#<<< 편집기에서 활성 블록 위에 블록 삽입<br>
-		app.refresh()												#<<< 새로 고침 편집기<br>
-		app.setStatus(_("Generated: MyPlugin Result"))				#<<< 피드백 결과<br>
+		app.refresh()							#<<< 새로 고침 편집기<br>
+		app.setStatus(_("Generated: MyPlugin Result"))			#<<< 피드백 결과<br>
 <br>
+		<h2 class="text-uppercase">4. 자신의 언어로 번역하는 방법</h2>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                  <p>자신의 언어로 bCNC를 번역하여 다른 사람들을 도울 수 있습니다. bCNC는 컴퓨터에서 구성한 로켈과 동일한 언어로 시작됩니다.</p>
+
+1)	우선 Poedit을 설치해야합니다. 이것은 번역 파일을 생성하기 위해 사용되는 인터페이스입니다. 그것을 얻으십시오 : http://poedit.net/download (리눅스에서 : apt-get install poedit OR yum install poedit)<br>
+
+2)	설치가 완료되면 Poedit을 열고 "기존 POT 파일로 새 번역 만들기"를 선택하십시오.<br>
+
+3)	bCNC.pot 파일을로드하십시오 (bCNC 저장소의 루트 폴더에 있습니다). 그러면 대화 할 언어를 지정하라는 메시지가 나타납니다.<br>
+
+4)	이제 번역이 필요한 모든 문장을 볼 수 있지만 아직 번역을 시작하지 마십시오. 대신 편집 -> 환경 설정으로 이동하여 이름 및 GitHub 사용자 이름을 입력하십시오 (예 : 이름 필드에 Peter Lang, 이메일 필드에 @peter).<br>
+
+5)	번역 파일을 저장하십시오. 예를 들어 스페인어 번역은 "locale / es / LC_MESSAGES / bCNC.po"로 저장됩니다. 귀하의 언어 코드와 일치하도록 언어 코드를 변경해야합니다. 해당 폴더에 나타나는 자동 생성 bCNC.mo 파일도 변환에 필요합니다.<br>
+
+6)	이제 번역을 시작할 수 있습니다. 긴 과정이므로 파일을 정기적으로 저장하십시오. 이 과정에서 bCNC를 열면 번역 할 언어와 동일한 언어로 구성된 로켈이 컴퓨터에있는 경우 번역 된 텍스트가 표시됩니다. Poedit를 닫은 후에 편집을 다시 시작해야하는 경우 LC_MESSAGES 폴더에 bCNC.po 파일을 직접로드 할 수 있습니다<br>
+
+참고 : 번역을 비워두면 원본 텍스트가 대신 사용됩니다. 원본 텍스트를 복제 할 필요는 없습니다.<br>
+
+참고 2 : 현재 (2016 년 1 월) 일부 문장이 GUI의 여러 부분에서 공유되므로 각 기능을 정확하게 설명하기가 어려울 수 있습니다 (예 : "잘라 내기"는 복사 / 붙여 넣기의 컨텍스트에서 사용됨) 가공 작업으로서).<br>
+
+참고 3 : 매우 기술적 인 자세한 오류 정보가있는 텍스트 단락이 있습니다. 시간이 없다면 이것들을 너무 많이 신경 쓰지 마라. 짧고 서술적인 텍스트를 더욱 중요하게 번역하십시오.<br>
+
+                  <p class="item-intro text-muted">updating translation</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                  <p>bCNC가 많이 개발되고 있음을 눈치 챘을 것입니다. 따라서 기여한 번역본을 자주 업데이트하는 것이 바람직합니다. 이것을하기 위해서 :
+
+'poedit'을 열고 "기존 .PO 파일 열기"를 선택하십시오. .po 파일을 편집하려는 언어의 디렉토리 (예 : "locale / es / LC_MESSAGES / bCNC.po")의 LC_messages 폴더에로드하십시오.
+그런 다음 "카탈로그"메뉴로 이동하여 ".POT 파일에서 업데이트"옵션을 선택하십시오. bCNC의 루트 디렉토리에서 "bCNC.pot"파일을 선택하십시오.
+그게 다야! 이제 누락 된 번역을 통합 할 수 있습니다 (데이터 손실을 방지하기 위해 .po 파일을 자주 저장하는 것을 잊지 마십시오)
+
+                  </p>
+               	<h2 class="text-uppercase">5. PCB 101 First time</h2>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                  <p>참고 사항 :이 자료는 Erik Shorb가 전자 메일로 제공 한 것입니다.</p>
+
+<p>1) Copper Copperclad PCB는 스틸 울 또는 이와 동등한 재질을 광택이 날 때까지 사용하십시오. 이 단계를 건너 뛰면 프로빙 할 때 공구 비트가 손상 될 수 있습니다.</p>
+
+<p>2) 기판을 낭비하지 말고 PCB를 "평평하게"단단히 고정하십시오. 이중지지 테이프는 어떤면에서는 잘 작동합니다.</p>
+
+<p>3) 라우터의 Mount First Drill 비트.</p>
+
+<p>4) 개략적으로 라우터 / 비트를 시작 위치로 설정하고 CNC 기계 전원을 켭니다.</p>
+
+<p>5) bCNC 시작</p>
+
+<p>6) bCNC를 통해 CNC에 연결</p>
+파일 메뉴 선택<br>
+직렬 포트 선택<br>
+열기를 클릭하십시오.<br>
+컨트롤 메뉴 선택<br>
+잠금 해제를 클릭하십시오.<br>
+	
+<p>7) 자동 응답 준비</p>
+파일 메뉴 선택<br>
+컷 아웃 라우팅을위한 gcode 파일 열기 - 정확한 Autolevel 영역을 설정하기가 쉽습니다.<br>
+Control 위젯을 사용하여 비트를 X 및 Y 위치에 배치하십시오.<br>
+프로브 메뉴 선택<br>
+프로브 서브 메뉴를 클릭하십시오.<br>
+X = 0을 클릭하여 X와 Y를 제로화합니다.<br>
+'화면에 맞춤'버튼을 클릭하십시오.<br>
+조그 컨트롤을 사용하여 2mm PCB 내에서 낮은 공구 비트<br>
+Z = 0을 클릭하여 Z를 제로화합니다.<br>
+프로브 메뉴에서 프로브 섹션의 Z Pos :를 -10으로 설정합니다. 그러면 프로브가 10mm 아래로 내려가도록합니다.<br>
+알람을 시작합니다.<br>
+PCB 및 공구 비트에 프로브 탐침을 부착하십시오 - 진행하기 전에 오류가 발생하여 손상된 비트가 발생할 수 있습니다.<br>
+프로브 버튼 클릭 (프로브 : 섹션에서)<br>
+Z 축을 제로 - Z = 0을 클릭하십시오.<br>
+조그를 사용하여 Z를 1mm 올립니다.<br>
+
+<p>8) 자동 응답</p>
+프로브 메뉴에서 자동 레벨 하위 메뉴 선택<br>
+여백을 클릭하십시오 - gcode 파일 한계에 매핑 된 자동 레벨 영역을 구성합니다<br>
+X와 Y에 대해 N을 조정하여 필요에 따라 X / Y 테스트 포인트 수 수정<br>
+Z Min을 -10으로 설정하고 Z Max를 0.5로 설정합니다. 보드 전체 높이의 편차가 크다고 예상 할 경우 Z max를 더 높은 값으로 설정하십시오 (아마도 보드 및 / 또는 기계의 수평 조정을 고려해야합니다)<br>
+PROBE CLIPS를 PCB 및 공구 비트로 확인 - 진행하기 전에 오류가 발생하여 손상된 비트가 발생할 수 있습니다.<br>
+스캔을 클릭하십시오.<br>
+X / Y 영점 복귀 명령 : (아래) G0 X0 Y0 입력<br>
+Z로 돌아 가기 제로 인 명령 : (하단) G0 Z0 입력<br>
+측정 값을 조정하려면 Autolevel 메뉴에서 "Zero"를 클릭하십시오 (@vlachoudis : 이것이 필요한 이유는 무엇입니까?)<br>
+공구 비트에 프로브 연결을 제거하십시오.<br>
+
+<p>9) 첫 번째 드릴 gcode 파일로드</p>
+파일 메뉴에서 열기를 선택하고 드릴 파일을 선택하십시오.<br>
+"프로브 파일 수정 됨"대화 상자에 no로 응답합니다.<br>
+"Existing Autolevel"대화 상자에 no로 대답하십시오.<br>
+선택 사항 - "보기 각도 변경"위젯에서 ISO보기를 선택하십시오.<br>
+
+<p>10) 드릴링 작업 수행</p>
+공구 연결부에 프로브 연결을 제거했는지 확인하십시오.<br>
+라우터의 전원을 수동으로 제어하는 경우 지금 켜십시오.<br>
+컨트롤 메뉴 선택<br>
+시작을 클릭하십시오.<br>
+드릴링이 완료되면 라우터의 전원을 수동으로 제어하는 경우 전원을 끄십시오.<br>
+
+<p>11) 도구 비트 변경 - 드릴, 라우팅 또는 조각 비트 이건간에 비트를 변경할 때마다이 작업을 수행하십시오.</p>
+조그 컨트롤을 사용하여 Z를 편안한 높이로 올리십시오.<br>
+도구 비트 교체<br>
+PCB 및 툴 비트에 프로브 프로브 클립 부착<br>
+조그 (Jog) 컨트롤을 사용하여 PCB의 2mm 이내로 낮추십시오.<br>
+프로브 메뉴 선택<br>
+프로브 서브 메뉴 선택<br>
+Z = 0을 클릭하여 Z를 제로화합니다.<br>
+프로브 버튼을 클릭하십시오.<br>
+Z = 0을 클릭하여 Z를 제로화합니다.<br>
+조그 컨트롤을 사용하여 Z를 1mm 올립니다.<br>
+공구 비트에 프로브 연결을 제거하십시오.<br>
+
+<p>12) 추가 드릴링 작업을 수행하는 경우 10-12 단계를 수행하고 최종 공구 비트가 트레이스 라우팅 비트로 변경됩니다.</p>
+
+<p>13) 추적 라우팅 gcode 파일을로드하십시오.</p>
+파일 메뉴에서 열기를 선택하고 추적 라우팅 gcode 파일을 선택하십시오.<br>
+"프로브 파일 수정 됨"대화 상자에 no로 응답합니다.<br>
+"Existing Autolevel"대화 상자에 no로 대답하십시오.<br>
+선택 사항 원하는보기 각도를 선택하십시오.<br>
+
+<p>14) 단계별 도구 비트 변경 11.</p>
+
+<p>15) 추적 라우팅 작업 수행</p>
+공구 연결부에 프로브 연결을 제거했는지 확인하십시오.<br>
+라우터의 전원을 수동으로 제어하는 경우 지금 켜십시오.<br>
+컨트롤 메뉴 선택<br>
+시작을 클릭하십시오.<br>
+라우팅이 완료되면 라우터의 전원을 수동으로 제어하는 경우 전원을 끄십시오.<br>
+
+<p>16) 로드 아웃 라인 라우팅 gcode 파일.</p>
+파일 메뉴에서 열기를 선택하고 개요 라우팅 gcode 파일을 선택하십시오.<br>
+"프로브 파일 수정 됨"대화 상자에 no로 응답합니다.<br>
+"Existing Autolevel"대화 상자에 no로 대답하십시오.<br>
+선택 사항 - 원하는보기 각도를 선택하십시오.<br>
+
+<p>17) 단계별 도구 비트 변경 12.</p>
+
+<p>18) 라우팅 작업 수행 개요</p>
+공구 연결부에 프로브 연결을 제거했는지 확인하십시오.<br>
+라우터의 전원을 수동으로 제어하는 경우 지금 켜십시오.<br>
+컨트롤 메뉴 선택<br>
+시작을 클릭하십시오.<br>
+라우팅이 완료되면 라우터의 전원을 수동으로 제어하는 경우 전원을 끄십시오.<br>
+
                   <ul class="list-inline">
                     <li>Date: June 2018</li>
                     <li>Category: Tutorials</li>
