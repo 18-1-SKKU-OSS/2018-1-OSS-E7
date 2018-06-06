@@ -611,84 +611,83 @@
 		  </p>
 		  <p class="item-intro text-muted">code</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                  <p>#!/usr/bin/python</p>
-	<p># -*- coding: ascii -*-</p>
-	<p># $Id$</p>
-	<p>#</p>
-	<p># 저자:  이름을 입력하시오 </p>
-	<p># 날짜:	   </p>
-
-	<p>__author__ = "Name Surname"</p>
-	<p>__email__  = "my.mail@gmail.com"  #<<< 여기 플러그인 사용자가 연락 할 수있는 이메일을 넣으십시오.</p>
-	<p># 여기에 필요한 라이브러리를 가져 오십시오. 이것들은 코드를 수정하는 데 필요합니다.</p>
-	<p>from CNC import CNC,Block</p>
-	<p>from ToolsPage import Plugin</p>
-	<p></p>
-	<p>#==============================================================================</p>
-	<p># My plugin</p>
-	<p>#==============================================================================</p>
-	<p>class Tool(Plugin):</p>
-	<p>	# 경고 문자열을 국제화 할 수있게하려면 __doc__이 필요합니다</p>
-	<p>	__doc__ = _("""This is my plugin""")			#<<< 이 설명은 리본 버튼의 툴팁으로 표시됩니다.</p>
-	<p>	def __init__(self, master):</p>
-	<p>		Plugin.__init__(self, master,"MyPlugin")</p>
-	<p>		#MYPlugin은 도구 리본 버튼의 플러그인 표시 이름입니다.</p>
-	<p>		self.icon = "lamp"			#<<< 리본 버튼의 아이콘으로 사용되는 gif 파일의 이름입니다. "icons"하위 폴더에서 검색합니다.</p>
-	<p>		self.group = "Generator"	#<<< 플러그인에 속한 그룹의 이름입니다.</p>
-	<p>		# 여기에서는 플러그인 내부에서 사용자에게 표시되는 위젯을 작성합니다.</p>
-	<p>		# 이름, 유형, 기본값, 설명</p>
-	<p>		self.variables = [			#<<< GUI 구성 요소 목록 정의</p>
-	<p>			("name"    ,    "db" ,    "", _("Name")),							# 내부 데이터베이스에 플러그인 설정을 저장하는 데 사용됩니다.</p>
-	<p>			("Size"    ,    "mm" ,   100.0, _("Size description")),				# CNC 설정에 따라 mm / inch 단위로 변환되는 변수</p>
-	<p>			("Int"     ,   "int" ,    2222, _("Integer description")),			#an integer variable</p>
-	<p>			("Float"   , "float" ,    33.3, _("Float description")),			#a float value variable</p>
-	<p>			("Text"    , "text" ,    "Free Text", _("Text description")),		#a text input box</p>
-	<p>			("CheckBox", "bool" ,  False, _("CheckBox description")),			#a true/false check box</p>
-	<p>			("OpenFile", "file" ,     "", _("OpenFile description")),			#a file chooser widget</p>
-	<p>			("ComboBox", "Item1,Item2,Item3" , "Item1", _("ComboBox description"))	# 객관식 콤보 상자</p>
-	<p>		]</p>
-	<p>		self.buttons.append("exe")  #<<< 아래의 execute 메소드를 호출하기 위해 하단에 추가 된 버튼입니다.</p>
-
-<p>		# ----------------------------------------------------------------------</p>
-<p>		# 이 메소드는 사용자가 플러그인 실행 버튼을 누를 때 실행됩니다.</p>
-<p>		# ----------------------------------------------------------------------</p>
-<p>		def execute(self, app):</p>
-<p>			name = self["name"]</p>
-<p>			if not name or name=="default": name="Default Name"</p>
-<p></p>
-<p>			#Retrive data from user imput</p>
-<p>			userSize = self["Size"]</p>
-<p></p>
-<p>			# 우리의 gCode를 포함 할 블록을 초기화하십시오.</p>
-<p>			blocks = []</p>
-<p>			block = Block(name)</p>
-<p></p>
-<p>			# 유용한 bCNC 함수를 사용하여 gCode 이동을 생성하십시오. 자세한 내용은 CNC.py를 참조하십시오.</p>
-<p>			x = 0</p>
-<p>			y = 0</p>
-<p>			block.append(CNC.zsafe()) 			#<<< 빠른 Z 축을 재고 자재의 안전 높이로 이동하십시오.</p>
-<p>			block.append(CNC.grapid(x,y))		#<<< X와 Y 좌표로 빠르게 이동</p>
-<p>			block.append(CNC.zenter(-1)) 		#<<< 현재 재료에 대한 플 런지 피드로 재료 입력</p>
-<p>			cutFeed = CNC.vars["cutfeed"]		#<<< 현재 자료의 절단 피드 얻기</p>
-<p>			block.append(CNC.fmt("f",cutFeed))	#<<< 절단 피드 설정</p>
-<p></p>
-<p>			# 다양한 x, y 좌표에 보간 된 선을 추가합니다.</p>
-<p>			i = userSize / 20.0</p>
-<p>			while (x < userSize):</p>
-<p>				x += i</p>
-<p>				block.append(CNC.gline(x,0))</p>
-<p>				block.append(CNC.gline(0,userSize - y))</p>
-<p>				y += i</p>
-<p>				block.append(CNC.gline(0,userSize - y))</p>
-<p></p>
-<p>			#</p>
-<p>			blocks.append(block)</p>
-<p>			active = app.activeBlock()</p>
-<p>			app.gcode.insBlocks(active, blocks, "MyPlugins inserted")	#<<< 편집기에서 활성 블록 위에 블록 삽입</p>
-<p>			app.refresh()											</p>	#<<< 새로 고침 편집기
-<p>			app.setStatus(_("Generated: MyPlugin Result"))				#<<< 피드백 결과</p>
-
-                  
+#!/usr/bin/python<br>
+# -*- coding: ascii -*-<br>
+# $Id$<br>
+#<br>
+# 저자:  이름을 입력하시오 <br>
+# 날짜:	   <br>
+<br>
+__author__ = "Name Surname"<br>
+__email__  = "my.mail@gmail.com"  #<<< 여기 플러그인 사용자가 연락 할 수있는 이메일을 넣으십시오.<br>
+# 여기에 필요한 라이브러리를 가져 오십시오. 이것들은 코드를 수정하는 데 필요합니다.<br>
+from CNC import CNC,Block<br>
+from ToolsPage import Plugin<br>
+<br>
+#==============================================================================<br>
+# My plugin<br>
+#==============================================================================<br>
+class Tool(Plugin):<br>
+	# 경고 문자열을 국제화 할 수있게하려면 __doc__이 필요합니다<br>
+	__doc__ = _("""This is my plugin""")			#<<< 이 설명은 리본 버튼의 툴팁으로 표시됩니다.<br>
+	def __init__(self, master):<br>
+		Plugin.__init__(self, master,"MyPlugin")<br>
+		#MYPlugin은 도구 리본 버튼의 플러그인 표시 이름입니다.<br>
+		self.icon = "lamp"			#<<< 리본 버튼의 아이콘으로 사용되는 gif 파일의 이름입니다. "icons"하위 폴더에서 검색합니다.<br>
+		self.group = "Generator"	#<<< 플러그인에 속한 그룹의 이름입니다.<br>
+		# 여기에서는 플러그인 내부에서 사용자에게 표시되는 위젯을 작성합니다.<br>
+		# 이름, 유형, 기본값, 설명<br>
+		self.variables = [			#<<< GUI 구성 요소 목록 정의<br>
+			("name"    ,    "db" ,    "", _("Name")),							# 내부 데이터베이스에 플러그인 설정을 저장하는 데 사용됩니다.<br>
+			("Size"    ,    "mm" ,   100.0, _("Size description")),				# CNC 설정에 따라 mm / inch 단위로 변환되는 변수<br>
+			("Int"     ,   "int" ,    2222, _("Integer description")),			#an integer variable<br>
+			("Float"   , "float" ,    33.3, _("Float description")),			#a float value variable<br>
+			("Text"    , "text" ,    "Free Text", _("Text description")),		#a text input box<br>
+			("CheckBox", "bool" ,  False, _("CheckBox description")),			#a true/false check box<br>
+			("OpenFile", "file" ,     "", _("OpenFile description")),			#a file chooser widget<br>
+			("ComboBox", "Item1,Item2,Item3" , "Item1", _("ComboBox description"))	# 객관식 콤보 상자<br>
+		]<br>
+		self.buttons.append("exe")  #<<< 아래의 execute 메소드를 호출하기 위해 하단에 추가 된 버튼입니다.<br>
+<br>
+	# ----------------------------------------------------------------------<br>
+	# 이 메소드는 사용자가 플러그인 실행 버튼을 누를 때 실행됩니다.<br>
+	# ----------------------------------------------------------------------<br>
+	def execute(self, app):<br>
+		name = self["name"]<br>
+		if not name or name=="default": name="Default Name"<br>
+		<br>
+		#Retrive data from user imput<br>
+		userSize = self["Size"]<br>
+		<br>
+		# 우리의 gCode를 포함 할 블록을 초기화하십시오.<br>
+		blocks = []<br>
+		block = Block(name)<br>
+		<br>
+		# 유용한 bCNC 함수를 사용하여 gCode 이동을 생성하십시오. 자세한 내용은 CNC.py를 참조하십시오.<br>
+		x = 0<br>
+		y = 0<br>
+		block.append(CNC.zsafe()) 			#<<< 빠른 Z 축을 재고 자재의 안전 높이로 이동하십시오.<br>
+		block.append(CNC.grapid(x,y))		#<<< X와 Y 좌표로 빠르게 이동<br>
+		block.append(CNC.zenter(-1)) 		#<<< 현재 재료에 대한 플 런지 피드로 재료 입력<br>
+		cutFeed = CNC.vars["cutfeed"]		#<<< 현재 자료의 절단 피드 얻기<br>
+		block.append(CNC.fmt("f",cutFeed))	#<<< 절단 피드 설정<br>
+ 		<br>
+		# 다양한 x, y 좌표에 보간 된 선을 추가합니다.<br>
+		i = userSize / 20.0<br>
+		while (x < userSize):<br>
+			x += i<br>
+			block.append(CNC.gline(x,0))<br>
+			block.append(CNC.gline(0,userSize - y))<br>
+			y += i<br>
+			block.append(CNC.gline(0,userSize - y))<br>
+<br>
+		#<br>
+		blocks.append(block)<br>
+		active = app.activeBlock()<br>
+		app.gcode.insBlocks(active, blocks, "MyPlugins inserted")	#<<< 편집기에서 활성 블록 위에 블록 삽입<br>
+		app.refresh()												#<<< 새로 고침 편집기<br>
+		app.setStatus(_("Generated: MyPlugin Result"))				#<<< 피드백 결과<br>
+<br>
                   <ul class="list-inline">
                     <li>Date: June 2018</li>
                     <li>Category: Tutorials</li>
