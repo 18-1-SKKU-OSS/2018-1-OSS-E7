@@ -614,6 +614,7 @@
 		  </p>
 		  <p class="item-intro text-muted">code</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+		  <p>	
 #!/usr/bin/python<br>
 # -*- coding: ascii -*-<br>
 #<br>
@@ -630,9 +631,9 @@ from ToolsPage import Plugin<br>
 # My plugin<br>
 #==============================================================================<br>
 class Tool(Plugin):<br>
-	# 경고 문자열을 국제화 할 수있게하려면 __doc__이 필요합니다<br>
-	__doc__ = _("""This is my plugin""")			#<<< 이 설명은 리본 버튼의 툴팁으로 표시됩니다.<br>
-	def __init__(self, master):<br>
+        # 경고 문자열을 국제화 할 수있게하려면 __doc__이 필요합니다<br>
+        __doc__ = _("""This is my plugin""")			#<<< 이 설명은 리본 버튼의 툴팁으로 표시됩니다.<br>
+       def __init__(self, master):<br>
 		Plugin.__init__(self, master,"MyPlugin")<br>
 		#MYPlugin은 도구 리본 버튼의 플러그인 표시 이름입니다.<br>
 		self.icon = "lamp"		#<<< 리본 버튼의 아이콘으로 사용되는 gif 파일의 이름입니다. "icons"하위 폴더에서 검색합니다.<br>
@@ -689,7 +690,7 @@ class Tool(Plugin):<br>
 		app.gcode.insBlocks(active, blocks, "MyPlugins inserted")	#<<< 편집기에서 활성 블록 위에 블록 삽입<br>
 		app.refresh()							#<<< 새로 고침 편집기<br>
 		app.setStatus(_("Generated: MyPlugin Result"))			#<<< 피드백 결과<br>
-<br>
+<br>		</p>
 		<h2 class="text-uppercase">4. 자신의 언어로 번역하는 방법</h2>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
                   <p>자신의 언어로 bCNC를 번역하여 다른 사람들을 도울 수 있습니다. bCNC는 컴퓨터에서 구성한 로켈과 동일한 언어로 시작됩니다.</p>
