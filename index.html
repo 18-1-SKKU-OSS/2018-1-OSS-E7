@@ -496,53 +496,49 @@
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Configuration</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
+                  <br>
                   <p>For the moment there is no graphical interface to modify the configuration, one will be created in the future.</p>
-							    <p>The easiest way is first to launch bCNC and close it. The first time it will create a clone of the bCNC.ini in your $HOME directory as $HOME/.bCNC</p>
-                  <p>- Even in windows the .bCNC file is created in the user folder. You can reach it easily using the Environment variable %UserProfile% . Hit [Windows key + R] paste %UserProfile% in the Run prompt, then click OK. The user folder will open and there you'll find the .bCNC file. Right click and choose "open with" then select notepad.</p>
-                  <p></p>
-                  <p>You can even view the file using the button in Tool --> Config --> User file.</p>
-                  <p>Open the file with a text editor. Change will be overwritten by bCNC on exist, so close bCNC before save the file.
-                  <p>The sections that may be necessary to modify are:</p>
-                  <p>[Connection]
-                    • baud = 115200
-                    • port = /dev/ttyACM0 ; Over Ethernet: socket://192.168.1.120:23
-                    • pendant = 0/1 ; 1 to start automatically the pendant web server 
-                    • pendantport = 8080 ;specify the port where bCNC will listen for browser
-                    • openserial = 0/1 ; allow to automatically open serial connection to grbl upon startup
-                    [CNC]
-                    (CNC section is also modifiable from Tools Tab in bCNC software)
-                    •units = 0 ; 0=mm, 1=inches
-                    •acceleration_x = 25
-                     acceleration_y = 25
-                     acceleration_z = 50
-                    ; acceleration in units/s^2 for time calculation
-                    •feedmax_x = 3000
-                     feedmax_y = 3000
-                     feedmax_z = 2000
-                    ; maximum feed rates in units/min for time calculation
-                    •travel_x = 200
-                    •travel_y = 200
-                    •travel_z = 100
-                    ; maximum travel of your machine in the three axes
-                    These values will define the WorkArea in the main canvas (enabled/disable from View-->WorkArea)
-                    Be aware: for historical reasons values are always referenced from top/right corner even if your home switch position is in the bottom/left corner.
-                    •round = 4 ; rounding accuracy in decimal digits .dddd
-                    •accuracy = 0.1 ; accuracy of displaying arcs (maximum allowed sagita)
-                    •startup = G90 ; startup G-code to send to machine before executing any program
-                    •safe_z = 3 ; safe Z height on free moves
-                    •spindlemin = 0
-                     spindlemax = 12000
-                    ; spindle maximum/minimum in rpm/min
+							    <p>가장 쉬운 방법은 먼저 bCNC를 실행하고 종료하는 것입니다. 그러면 $HOME/.bCNC 파일로 $HOME 디렉토리에 bCNC.ini의 사본이 생성될 것입니다.</p>
+                  <p>- 윈도우에서도 .bCNC 파일이 사용자 폴더에 생성됩니다. 환경 변수 %UserProfile%를 사용하여 쉽게 접근 할 수 있습니다. 실행 프롬프트에서 [Windows키 + R]를 누른 후 %UserProfile%를 붙여 넣은 다음 확인을 클릭하십시오. 사용자 폴더가 열리면 .bCNC 파일을 찾을 수 있을 것입니다. 마우스 오른쪽 버튼을 클릭하고 "open with"을 선택한 다음 메모장을 선택하십시오.</p>
+                  <br>
+                  <p>도구(Tools)->구성(Config)->사용자 파일(User File)의 버튼을 사용하여 파일을 볼 수도 있습니다.</p>
+                  <p>텍스트 편집기로 파일을 엽니다. 변경 사항은 bCNC 파일에 겹쳐 써지므로 파일을 저장하기 전에 bCNC를 닫으십시오.</p>
+                  <p>수정할 필요가 있는 섹션은 다음과 같습니다 : </p>
+                  <p>[Connection]<br>
+                    • 보오(baud) = 115200<br>
+                    • 포트(port) = /dev/ttyACM0; Over Ethernet: socket://192.168.1.120:23<br>
+                    • 펜던트(pendant) = 0/1; 1은 자동으로 펜던트 웹 서버를 시작합니다.<br>
+                    • 펜던트포트(pendantport) = 8080; bCNC가 브라우저를 수신 대기 할 포트 지정<br>
+                    • 시리얼연결(openserial) = 0/1; 시작시 자동으로 시리얼 연결을 허용<br><br>
+                    [CNC]<br>
+                    (CNC 섹션은 bCNC 소프트웨어의 도구 탭에서도 수정할 수 있습니다.)<br>
+                    • units = 0 ; 0=mm, 1=inches<br>
+                    • acceleration_x = 25<br>
+                      acceleration_y = 25<br>
+                      acceleration_z = 50; 시간 계산을 위한 단위 가속도/s^2<br>
+                    • feedmax_x = 3000<br>
+                      feedmax_y = 3000<br>
+                      feedmax_z = 2000; 시간 계산을 위한 최대 이송 속도 (단위/분)<br>
+                    • travel_x = 200<br>
+                      travel_y = 200<br>
+                      travel_z = 100; 세 축에서 기계의 최대 이동량<br>
+                      이 값은 주 캔버스에서 WorkArea를 정의합니다.(보기 -> WorkArea에서 활성화/비활성화)<br>
+                      주의 사항 : 관례적으로 홈 스위치 위치가 하단/왼쪽 모서리에 있더라도 항상 값이 위쪽/오른쪽 위치에서 참조됩니다.<br>
+                    • round = 4; 10진수의 반올림 정확도 .dddd<br>
+                    • accuracy = 0.1; 호를 표시하는 정확도<br>
+                    • startup = G90; 어떤 프로그램을 실행하기 전에 기계에 보내는 시작 G코드<br>
+                    • safe_z = 3; 자유 이동시 안전 Z높이<br>
+                    • spindlemin = 0<br>
+                      spindlemax = 12000; 스핀들 최대/최소 rpm / min</p>
+                    <br>
+                    <p>조깅을 위해 다른 Z 축척 사용하기</p>
+                    <p>[Control] 섹션에 한 줄을 삽입해야합니다.<br>
+                    zstep = 1.0</p>
+                    <br><br>
 
-                    Using different Z-scale for jogging
-                    You have to insert one line in the [Control] section
-                    zstep = 1.0.</p>
-                    <p></p>
                     <h4 class="section-subheading">1. Customize DRO(Digital Read Only</h4>
-                    <p> It is very easy to change the Font used by DRO. The font type and size are defined in the Tools->Font section of bCNC.
-                     The format used is Font name,Size,Options where:
+                    <p> DRO에서 사용하는 글꼴을 변경하는 것은 매우 쉽습니다. 글꼴 유형과 크기는 bCNC의 도구 ->글꼴 섹션에서 정의됩니다.<br>
+                     사용 된 형식은 ‘글꼴 이름’, ‘크기’, ‘옵션’입니다.</p>
                     •Font name = is a font name present in your system
                     •Size = is the size in DPI, negative size uses true pixels
                     •Options = can be bold or italic 
