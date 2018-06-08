@@ -587,20 +587,20 @@
                   <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_shortcuts.png" alt=""><br>
                   <p>명령에 대한 응답은 빠르지만 기계를 멈추는 것 보다 안정적이고 안전한 방법이 필요한 경우 실제 버튼을 추가하는 것이 좋습니다. GRBL은 이 또한 수용 할 수 있습니다.</p><br><br>
 
-                  
+
                   <h4 class="section-subheading">5. Events</h4>
-                  <p>bCNC can execute some user software when certain events are raised.<br>
-                  Here is the description of managed events:</p>
-                  <p>•onstart: executed at the beginning of gcode execution.<br>
-                     •onstop: executed when the stream of gcode is stopped.</p>
-                  <p>To define the command executed you can fill the text field in: Tools->Config->Events</p>
+                  <p>bCNC는 특정 이벤트가 발생할 때 일부 사용자 소프트웨어를 실행할 수 있습니다.<br>
+                  다음은 관리 이벤트에 대한 설명입니다.</p>
+                  <p>• onstart : Gcode 실행의 시작 부분에서 실행됩니다.<br>
+                     • onstop : Gcode 스트림이 중지되면 실행됩니다.</p>
+                  <p>실행 된 명령을 정의하려면 도구(Tools)->구성(Config)->이벤트(Events)에서 텍스트 필드를 채울 수 있습니다.</p>
                   <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_events.png" alt=""><br>
-                  <p>or you can customize your configuration file .bCNC present in your user folder.<br>
-                    You'll find a section called [Events], name the event you need to handle = the command you need to execute by your os. Here an example:</p>
+                  <p>또는 사용자 폴더에 있는 구성파일 .bCNC를 사용자 정의 할 수 있습니다.<br>
+                    ‘[Events]’ 섹션을 찾고, 처리해야 할 이벤트의 이름을 지정하고 운영체제에서 실행하는 명령을 지정하십시오. 예를 들면 다음과 같습니다.</p>
                   <p>[Events]<br>
                       onstart = date.exe<br>
                       onstop = c:\SendMail.py<br></p>
-                  <p>This allow to run any software (send email, take snapshot, pay the rent) external to bCNC.</p>
+                  <p>이를 통해 bCNC 외부의 소프트웨어(이메일 전송, 스냅샷 작성, 임대료 지불)를 실행할 수 있습니다.</p>
 
 
 
