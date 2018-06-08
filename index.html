@@ -550,19 +550,19 @@
                   <p></p>
                   <p></p>
                   <h4 class="section-subheading">2. Customize Menu</h4>
-                  <p class="item-intro text-muted">How to add the run/pause/stop buttons on others tab</p>
-                  <p>The default configuration doesn't give you the "Run" ribbon in the probe tab. In this example we'll add it there, but the process is similar for other menu/tab. Here the result.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_menu1.png" alt="">
-                  <p>To do this you have to manually change the .bCNC configuration file. At the moment this have to be done with an external editor.</p>
-                  <p>The file is created in your user directory. It's NOT the "bCNC.ini" file in the bCNC folder. The exact location of this file depends on you operating system.</p>
-                  <p>For a fast find click in the Tool ribbon and then the configure tab. A user file button will be displayed. Click an then the ./bcn file will be shown.</p>
+                  <p class="item-intro text-muted">다른 탭에 실행 / 일시 정지 / 정지 버튼을 추가하는 방법</p>
+                  <p>기본 구성은 ‘probe’ 탭에 "Run" 리본을 제공하지 않습니다. 이 설명에서는 추가 하겠지만 다른 메뉴/탭과 프로세스는 유사합니다. 아래 결과를 제공합니다.</p>
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_menu1.png" alt=""><br>
+                  <p>위와 같이 하기 위해서는 수동으로 .bCNC 구성 파일을 변경해야합니다. 현재의 작업은 외부 편집기를 통해 수행해야합니다.</p>
+                  <p>파일이 사용자 디렉토리에 작성됩니다. bCNC 폴더에있는 "bCNC.ini"파일이 아니니 주의하시길 바랍니다. 이 파일의 정확한 위치는 운영 체제에 따라 달라질 수 있습니다.</p>
+                  <p>신속한 서치를 위해서 도구(Tool) 리본에서 다음 구성(Configure) 탭을 클릭하십시오. 사용자 파일(User File) 버튼이 표시됩니다. 이것을 클릭하면 ./bcn 파일이 나타납니다.</p>
                   <p></p>
                   <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_menu2.png" alt="">
-                  <p>Here for windows: Hit [Windows key + R] paste %UserProfile% in the Run prompt, then click OK. The user folder will open and there you'll find the .bCNC file. Right click and choose "open with" then select notepad.</p>
-                  <p>In the file you have to add this line in [bCNC] section:</p>
+                  <p>Windows의 경우 : [Windows 키 + R]을 눌러 실행 프롬프트에서 %UserProfile%를 붙여넣고 확인을 클릭하십시오. 사용자 폴더가 열리며 .bCNC 파일이 있을 것입니다. 마우스 오른쪽 버튼을 클릭하고 "open with"를 선택한 다음 메모장을 선택하십시오.</p>
+                  <p>실행한 파일에서 아래의 줄을 [bCNC] 섹션에 추가해야합니다.</p>
                   <p>probe.ribbon = Connection Probe Run</p>
                   <p></p>
-                  <p>The Run option will add the buttons you want. Restart to take effect.</p>
+                  <p>실행 옵션을 사용하여 원하는 버튼을 추가 할 수 있습니다. 변경사항은 프로그램을 재시작할 때 적용됩니다.</p>
                   <br><br>
                   <h4 class="section-subheading">3. Customize GUI</h4>
                   <p class="item-intro text-muted">Fit the Graphical User Interface to your needs/hardware</p>
