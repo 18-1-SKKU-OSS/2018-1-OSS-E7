@@ -499,7 +499,48 @@
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
                   <p>For the moment there is no graphical interface to modify the configuration, one will be created in the future.</p>
-							
+							    <p>The easiest way is first to launch bCNC and close it. The first time it will create a clone of the bCNC.ini in your $HOME directory as $HOME/.bCNC</p>
+                  <p>- Even in windows the .bCNC file is created in the user folder. You can reach it easily using the Environment variable %UserProfile% . Hit [Windows key + R] paste %UserProfile% in the Run prompt, then click OK. The user folder will open and there you'll find the .bCNC file. Right click and choose "open with" then select notepad.</p>
+                  <p></p>
+                  <p>You can even view the file using the button in Tool --> Config --> User file.</p>
+                  <p>Open the file with a text editor. Change will be overwritten by bCNC on exist, so close bCNC before save the file.
+                  <p>The sections that may be necessary to modify are:</p>
+                  <p>[Connection]
+                    • baud = 115200
+                    • port = /dev/ttyACM0 ; Over Ethernet: socket://192.168.1.120:23
+                    • pendant = 0/1 ; 1 to start automatically the pendant web server 
+                    • pendantport = 8080 ;specify the port where bCNC will listen for browser
+                    • openserial = 0/1 ; allow to automatically open serial connection to grbl upon startup
+                    [CNC]
+                    (CNC section is also modifiable from Tools Tab in bCNC software)
+                    •units = 0 ; 0=mm, 1=inches
+                    •acceleration_x = 25
+                     acceleration_y = 25
+                     acceleration_z = 50
+                    ; acceleration in units/s^2 for time calculation
+                    •feedmax_x = 3000
+                     feedmax_y = 3000
+                     feedmax_z = 2000
+                    ; maximum feed rates in units/min for time calculation
+                    •travel_x = 200
+                    •travel_y = 200
+                    •travel_z = 100
+                    ; maximum travel of your machine in the three axes
+                    These values will define the WorkArea in the main canvas (enabled/disable from View-->WorkArea)
+                    Be aware: for historical reasons values are always referenced from top/right corner even if your home switch position is in the bottom/left corner.
+                    •round = 4 ; rounding accuracy in decimal digits .dddd
+                    •accuracy = 0.1 ; accuracy of displaying arcs (maximum allowed sagita)
+                    •startup = G90 ; startup G-code to send to machine before executing any program
+                    •safe_z = 3 ; safe Z height on free moves
+                    •spindlemin = 0
+                     spindlemax = 12000
+                    ; spindle maximum/minimum in rpm/min
+
+                    Using different Z-scale for jogging
+                    You have to insert one line in the [Control] section
+                    zstep = 1.0.</p>
+
+
                   <ul class="list-inline">
                     <li>Date: January 2017</li>
                     <li>Client: Explore</li>
