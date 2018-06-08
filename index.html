@@ -568,6 +568,39 @@
                   <p>probe.ribbon = Connection Probe Run</p>
                   <p></p>
                   <p>The Run option will add the buttons you want. Restart to take effect.</p>
+                  <br><br>
+                  <h4 class="section-subheading">3. Customize GUI</h4>
+                  <p class="item-intro text-muted">Fit the Graphical User Interface to your needs/hardware</p>
+                  <p>Here a couple of tricks to modify some aspects of the layout:<br>
+                    • Resize panel: hang the mouse over the border (red in picture), cursor should change to a double arrow shape (not show in picture). Now Click and drag the border to resize the panel.</p>
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_GUI1.png" alt=""><br>
+                  <p>• Collapse: most of the panels can be collapsed if you click over their name, click again to restore them:</p>
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_GUI2.png" alt=""><br><br>
+                  <h4 class="section-subheading">4. Shortcuts</h4>
+                  <p>From Tools-> Shortcuts you have access to a list of Keyboard Keys allowed to be binded to ANY of:</p>
+                  <p>•bCNC command listed in Command Line<br>
+                     •Gcode (like MDI commands)<br>
+                     •SENDHEX command to send character encoded in hex to grbl<br>
+                   •Python script, by preceding the command with the % symbol</p><br>
+                  <p>For example in my setup I use some shortcuts to the run-stop buttons. In this way I have some physical button to use:</p>
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_shortcuts.png" alt=""><br>
+                  <p>Response to command is fast, but if you need a more reliable and secure way to stop your machine consider to add some real physical buttons, GRBL is ready to accept them.</p><br><br>
+                  <h4 class="section-subheading">5. Events</h4>
+                  <p>bCNC can execute some user software when certain events are raised.<br>
+                  Here is the description of managed events:</p>
+                  <p>•onstart: executed at the beginning of gcode execution.<br>
+                     •onstop: executed when the stream of gcode is stopped.</p>
+                  <p>To define the command executed you can fill the text field in: Tools->Config->Events</p>
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_events.png" alt=""><br>
+                  <p>or you can customize your configuration file .bCNC present in your user folder.<br>
+                    You'll find a section called [Events], name the event you need to handle = the command you need to execute by your os. Here an example:</p>
+                  <p>[Events]<br>
+                      onstart = date.exe<br>
+                      onstop = c:\SendMail.py<br></p>
+                  <p>This allow to run any software (send email, take snapshot, pay the rent) external to bCNC.</p>
+
+
+
 
                   <ul class="list-inline">
                     <li>Date: January 2017</li>
