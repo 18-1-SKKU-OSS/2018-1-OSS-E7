@@ -495,7 +495,7 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
+                  <h2 class="text-uppercase">Configuration</h2>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
                   <p>For the moment there is no graphical interface to modify the configuration, one will be created in the future.</p>
@@ -548,12 +548,26 @@
                     •Options = can be bold or italic 
 
                     Some font have been reported not to resize correctly the container, please try with a standard font.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_DRO.png" alt="">
                   <p>In the image above use a fixed number of decimal place.
                    The settings is set in Tools->Machine->DRO Zero padding.
                   Restart bCNC to take effect.</p>
-
-
+                  <p></p>
+                  <p></p>
+                  <h2 class="">2. Customize Menu</h2>
+                  <p class="item-intro text-muted">How to add the run/pause/stop buttons on others tab</p>
+                  <p>The default configuration doesn't give you the "Run" ribbon in the probe tab. In this example we'll add it there, but the process is similar for other menu/tab. Here the result.</p>
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_menu1.png" alt="">
+                  <p>To do this you have to manually change the .bCNC configuration file. At the moment this have to be done with an external editor.</p>
+                  <p>The file is created in your user directory. It's NOT the "bCNC.ini" file in the bCNC folder. The exact location of this file depends on you operating system.</p>
+                  <p>For a fast find click in the Tool ribbon and then the configure tab. A user file button will be displayed. Click an then the ./bcn file will be shown.</p>
+                  <p></p>
+                  <img class="img-fluid d-block mx-auto" src="img/hokeun/bCNC_menu2.png" alt="">
+                  <p>Here for windows: Hit [Windows key + R] paste %UserProfile% in the Run prompt, then click OK. The user folder will open and there you'll find the .bCNC file. Right click and choose "open with" then select notepad.</p>
+                  <p>In the file you have to add this line in [bCNC] section:</p>
+                  <p>probe.ribbon = Connection Probe Run</p>
+                  <p></p>
+                  <p>The Run option will add the buttons you want. Restart to take effect.</p>
 
                   <ul class="list-inline">
                     <li>Date: January 2017</li>
