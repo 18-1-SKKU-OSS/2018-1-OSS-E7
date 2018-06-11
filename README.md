@@ -23,11 +23,11 @@ project page: [https://github.com/18-1-SKKU-OSS/bCNC](https://github.com/18-1-SK
 차호근: chahg0129@naver.com
 
 ## Merged Pull Requests
-#849: [https://github.com/vlachoudis/bCNC/pull/849] (https://github.com/vlachoudis/bCNC/pull/849)
+#849: [https://github.com/vlachoudis/bCNC/pull/849](https://github.com/vlachoudis/bCNC/pull/849)
 
-#854: [https://github.com/vlachoudis/bCNC/pull/854] (https://github.com/vlachoudis/bCNC/pull/854)
+#854: [https://github.com/vlachoudis/bCNC/pull/854](https://github.com/vlachoudis/bCNC/pull/854)
 
-#855: [https://github.com/vlachoudis/bCNC/pull/855] (https://github.com/vlachoudis/bCNC/pull/855)
+#855: [https://github.com/vlachoudis/bCNC/pull/855](https://github.com/vlachoudis/bCNC/pull/855)
 
 bCNC
 ====
